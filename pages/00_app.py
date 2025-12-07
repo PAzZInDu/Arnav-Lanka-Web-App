@@ -20,7 +20,7 @@ class_dict = {
 
 
 def cancer_prediction():
-    #st.title("Human Colorectal Cancer Prediction")
+    st.title("Human Colorectal Cancer Prediction")
 
     st.image(
         "https://cdn.scope.digital/Images/Articles/kolon-bagirsak-kanseri-belirtileri-ve-tedavisi-5628892.jpg?tr=w-630,h-420", 
