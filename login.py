@@ -5,7 +5,7 @@ import authlib
 IMAGE_ADDRESS = "https://cdn.scope.digital/Images/Articles/kolon-bagirsak-kanseri-belirtileri-ve-tedavisi-5628892.jpg?tr=w-630,h-420"
 
 if not st.user.is_logged_in:
-    st.title("Google Login App")
+    st.title("Human Colorectal Cancer Prediction - Google Login App")
     st.image(IMAGE_ADDRESS)
     if st.sidebar.button("Log in with Google", type="primary", icon=":material/login:"):
         st.login()
