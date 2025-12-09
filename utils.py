@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import tensorflow as tf
-from keras.applications.mobilenet_v2 import preprocess_input
+from keras.applications.resnet import preprocess_input
 from PIL import Image
 from keras.models import Model
 from keras.layers import GlobalAveragePooling2D
@@ -16,11 +16,11 @@ def class_lables():
 
 
 def preprocess_img(sample_image, IMG_SIZE):
-    preprocess_model = tf.keras.applications.ConvNeXtXLarge(input_shape=(224, 224, 3), include_top=False, weights='imagenet')
+    base_model = tf.keras.applications.ConvNeXtXLarge(input_shape=(224, 224, 3), include_top=False, weights='imagenet')
     # Add average pooling to the base
-    x = preprocess_model.output
+    x = base_model.output
     x = GlobalAveragePooling2D()(x)
-    model_frozen = Model(inputs=preprocess_model.input,outputs=x)
+    model_frozen = Model(inputs=base_model.input,outputs=x)
 
     sample_image = Image.open(sample_image).convert("RGB")
     img_array = sample_image.resize(IMG_SIZE)
